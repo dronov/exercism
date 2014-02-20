@@ -21,8 +21,6 @@ class Scrabble
   end
 
   def score
-    @word.split('').reduce(0) do |sum, char|
-      sum + POINTS[char.to_sym]
-    end
+    @word.split('').map {|item| POINTS[item.to_sym] }.reduce(0) { |sum, val| sum + val }
   end
 end
